@@ -308,3 +308,5 @@ document.getElementById("menuToggle").addEventListener("click", () => {
 renderStatsCards();
 renderStaffTable();
 renderCalendar();
+
+import "./staff.js";
