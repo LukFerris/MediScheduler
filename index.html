@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediScheduler - Gestione Turni Personale Medico</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Mobile menu toggle -->
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-hospital-user fa-2x"></i>
+        <h2>MediScheduler</h2>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="active">
+          <a href="#" data-page="dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" data-page="schedules">
+            <i class="fas fa-calendar-alt"></i>
+            Turni
+          </a>
+        </li>
+        <li>
+          <a href="#" data-page="staffPage">
+            <i class="fas fa-user-md"></i>
+            Personale
+          </a>
+        </li>
+        <li>
+          <a href="#" data-page="departments">
+            <i class="fas fa-hospital"></i>
+            Reparti
+          </a>
+        </li>
+        <li>
+          <a href="#" data-page="reports">
+            <i class="fas fa-chart-bar"></i>
+            Report
+          </a>
+        </li>
+        <li>
+          <a href="#" data-page="settings">
+            <i class="fas fa-cog"></i>
+            Impostazioni
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Dashboard Page -->
+      <div class="page active" id="dashboard">
+        <div class="header">
+          <h1>Dashboard</h1>
+          <div class="user-profile">
+            <img src="/api/placeholder/40/40" alt="User Profile" />
+            <div>
+              <h3>Dr. Alessandro Rossi</h3>
+              <p>Amministratore</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Cards (contenuto generato dinamicamente) -->
+        <div class="stats-container" id="statsCards"></div>
+
+        <!-- Staff Table -->
+        <div class="table-container">
+          <div class="table-header">
+            <h3 class="table-title">Personale di Turno Oggi</h3>
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" id="staffSearch" placeholder="Cerca medico..." />
+            </div>
+          </div>
+          <table id="staffTable">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Reparto</th>
+                <th>Ruolo</th>
+                <th>Orario</th>
+                <th>Stato</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Le righe verranno generate dinamicamente -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Weekly Calendar -->
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <h3 class="calendar-title">Pianificazione Settimanale</h3>
+            <div class="calendar-nav">
+              <button id="prevWeek">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <span class="calendar-date" id="calendarDate"></span>
+              <button id="nextWeek">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="calendar-grid" id="calendarGrid">
+            <!-- Il calendario verrà generato dinamicamente -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Altre pagine (placeholder da ampliare) -->
+      <div class="page" id="schedules" style="display: none;">
+        <h1>Turni</h1>
+        <div id="schedulesContent">
+          <!-- Gestione dinamica dei turni -->
+          <p>Funzionalità di gestione turni in sviluppo.</p>
+        </div>
+      </div>
+      <div class="page" id="staffPage" style="display: none;">
+        <h1>Personale</h1>
+        <div id="staffContent">
+          <!-- Gestione dettagliata del personale -->
+          <p>Gestione del personale (aggiungi, modifica, elimina) in sviluppo.</p>
+        </div>
+      </div>
+      <div class="page" id="departments" style="display: none;">
+        <h1>Reparti</h1>
+        <div id="departmentsContent">
+          <!-- Gestione dei reparti ospedalieri -->
+          <p>Gestione reparti in sviluppo.</p>
+        </div>
+      </div>
+      <div class="page" id="reports" style="display: none;">
+        <h1>Report</h1>
+        <div id="reportsContent">
+          <!-- Report e analisi -->
+          <p>Reportistica e analisi in sviluppo.</p>
+        </div>
+      </div>
+      <div class="page" id="settings" style="display: none;">
+        <h1>Impostazioni</h1>
+        <div id="settingsContent">
+          <!-- Configurazione dell'applicazione -->
+          <p>Impostazioni applicazione in sviluppo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal per visualizzazione / modifica dettagli -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Dettagli</h3>
+        <button class="modal-close" id="modalClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Contenuto aggiornato dinamicamente -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="modalOk">Ok</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
