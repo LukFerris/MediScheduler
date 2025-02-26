@@ -1,3 +1,5 @@
+import "./staff.js";
+
 // Dati di esempio
 const staff = [
   {
@@ -313,5 +315,3 @@ document.getElementById("menuToggle").addEventListener("click", () => {
 renderStatsCards();
 renderStaffTable();
 renderCalendar();
-
-import "./staff.js";
