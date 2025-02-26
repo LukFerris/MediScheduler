@@ -142,12 +142,12 @@ function renderStatsCards() {
     card.innerHTML = `
       <div class="card-header">
         <h3 class="card-title">${stat.title}</h3>
-        <div class="card-icon <span class="math-inline">\{stat\.iconClass\}"\>
-<i class\="</span>{stat.icon}"></i>
+        <div class="card-icon ${stat.iconClass}"> 
+          <i class="${stat.icon}"></i>
         </div>
       </div>
-      <div class="card-value"><span class="math-inline">\{stat\.value\}</div\>
-<div class\="card\-description"\></span>{stat.description}</div>
+      <div class="card-value">${stat.value}</div>
+      <div class="card-description">${stat.description}</div>
     `;
     statsContainer.appendChild(card);
   });
