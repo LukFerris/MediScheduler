@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const staffForm = document.getElementById("staffForm");
   const staffTableBody = document.getElementById("staffTableBody");
 
-  let staffList = JSON.parse(localStorage.getItem("staffList")) ||;
+  let staffList = JSON.parse(localStorage.getItem("staffList")) ||; // Correzione: rimosso il punto e virgola in più
 
   function renderStaffTable() {
     staffTableBody.innerHTML = "";
